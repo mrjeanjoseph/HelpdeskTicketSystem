@@ -1,6 +1,22 @@
-# Ticketsystem
+# Angular Project - 
+## HelpDesk Ticket System
+
+1. User sees a list of tickets upon entering the site.
+2. By clicking a ticket, user sees detail about the question or issue.
+3. User can create a new ticket.
+4. User can add a resolution and close a ticket.
+5. User can bookmark a ticket.
+6. User can see a list of bookmarked tickets.
+Tickets include fields identifying who opened the ticket and who resolved it, and can take user-entered data.
+Tickets go into one database table, favorites into another. User favorites are stored in the database - login is not required.
+
+Access to the backend project see (https://github.com/scavs88/ServiceDeskBackEnd)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
+
+
+===========================================================
 
 ## Development server
 
