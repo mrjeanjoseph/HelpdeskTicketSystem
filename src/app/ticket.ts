@@ -5,3 +5,4 @@ export interface Ticket {
     issue: string;
     openedBy: string;
 }
+

@@ -13,8 +13,7 @@ export class TicketdetailsComponent implements OnInit {
     status: 0,
     ticketName: "",
     issue: "",
-    openedBy: "",
-
+    openedBy: ""
   }
   constructor() { }
 
