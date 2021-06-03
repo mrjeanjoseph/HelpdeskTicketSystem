@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Ticket } from './../ticket';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-ticketdetails',
@@ -7,6 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TicketdetailsComponent implements OnInit {
 
+  @Input() ticketLists: Ticket = {
+    id: 0,
+    status: 0,
+    ticketName: "",
+    issue: "",
+    openedBy: "",
+
+  }
   constructor() { }
 
   ngOnInit(): void {

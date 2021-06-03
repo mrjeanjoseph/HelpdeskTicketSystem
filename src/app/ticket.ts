@@ -3,5 +3,5 @@ export interface Ticket {
     status: number;
     ticketName: string;
     issue: string;
-    openedBy: string;    
+    openedBy: string;
 }
