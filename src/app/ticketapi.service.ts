@@ -18,16 +18,16 @@ export class TicketapiService {
     return this.http.get(this.apiUrl);
   }
 
-  GetTicketById(id:number): any{
-    let result: Ticket
+  // GetTicketById(id:number): any{
+  //   let result: Ticket
 
-    this.apiUrl.forEach((element: Ticket) => {
-      if(element.id == id){
-        result = element;
-      }      
-    })
-    return result;
-  }
+  //   this.apiUrl.forEach((element: Ticket) => {
+  //     if(element.id == id){
+  //       result = element;
+  //     }      
+  //   })
+  //   return result;
+  // }
 
   // GetAllTickets():Observable<Ticket[]>{ // method created to get all tickets
   //   return this.http.get<Ticket[]>(this.apiUrl);

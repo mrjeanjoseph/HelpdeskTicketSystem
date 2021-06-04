@@ -30,14 +30,29 @@ export class TicketsComponent implements OnInit {
 
 
 
+  // ngOnInit(): void {
+  //   //this.GetAListOfTickets();
+  //   this.tickets = this.ticketapiService.GetAllTickets();
+  // }
+
+
   ngOnInit(): void {
     //this.GetAListOfTickets();
-    this.tickets = this.ticketapiService.GetAllTickets();
+    this.GetAllTickets();
   }
 
-  SearchTicketByName(type:string):void{
-    console.log(type);
-    this.searchTickets = type;
+  // SearchTicketByName(type:string):void{
+  //   console.log(type);
+  //   this.searchTickets = type;
+  // }
+
+  GetAllTickets():void{
+    this.ticketapiService.GetAllTickets().subscribe(
+      (response: any) =>{
+        this.tickets = response.tickets;
+        console.log(response);
+      }
+    )
   }
 
   // GetAListOfTickets(): void{

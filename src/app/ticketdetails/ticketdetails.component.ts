@@ -12,7 +12,7 @@ export class TicketdetailsComponent implements OnInit {
 
 aSingleTicket: Ticket = {
     id: -1,
-    status: 0,
+    status: false,
     ticketName: "",
     issue: "",
     openedBy: ""
@@ -20,10 +20,10 @@ aSingleTicket: Ticket = {
   constructor(private ticketApiService: TicketapiService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    const routeParams = this.route.snapshot.paramMap;
-    let id: number = Number(routeParams.get("id"));
+    // const routeParams = this.route.snapshot.paramMap;
+    // let id: number = Number(routeParams.get("id"));
 
-    this.aSingleTicket = this.ticketApiService.GetTicketById(id);
+    // this.aSingleTicket = this.ticketApiService.GetTicketById(id);
   }
 
 }
