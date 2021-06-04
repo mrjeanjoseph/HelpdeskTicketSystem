@@ -1,5 +1,7 @@
+import { TicketapiService } from './../ticketapi.service';
 import { Ticket } from './../ticket';
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-ticketdetails',
@@ -8,16 +10,20 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TicketdetailsComponent implements OnInit {
 
-  @Input() ticketLists: Ticket = {
-    id: 0,
+aSingleTicket: Ticket = {
+    id: -1,
     status: 0,
     ticketName: "",
     issue: "",
     openedBy: ""
   }
-  constructor() { }
+  constructor(private ticketApiService: TicketapiService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    const routeParams = this.route.snapshot.paramMap;
+    let id: number = Number(routeParams.get("id"));
+
+    this.aSingleTicket = this.ticketApiService.GetTicketById(id);
   }
 
 }

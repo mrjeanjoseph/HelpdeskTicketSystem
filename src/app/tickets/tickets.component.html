@@ -1,3 +1,10 @@
-<h2>HelpDesk</h2>
+<h2>Parent Component</h2>
+<h4>All tickets should appear here!</h4>
+<!-- This is the parent component -->
 
-<app-ticketdetails [ticketLists]="t" *ngFor="let t of tickets"></app-ticketdetails>
+
+<app-searchform ()="SearchTicketByName($event)"></app-searchform>
+<!-- 'submitsearch' goes in the parentesis-->
+<div *ngFor="let t of GetTicketResult()">
+<p>{{ t.ticketName }}</p>
+</div>

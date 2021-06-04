@@ -10,26 +10,44 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TicketsComponent implements OnInit {
 
-  tickets:Ticket[] = []; //Initalize a empty api array to fill
-  ticketName: string = "";
-  issue: string = "";
-  
-  //status: number = 0; This is giving me an error.
-
-
   constructor(private ticketapiService: TicketapiService) { }
 
-  ngOnInit(): void {
-    this.GetAListOfTickets();
+  tickets:Ticket[] = []; //Initalize a empty api array to fill
+  // ticketName: string = ""; // It looks like I don't have to initialize anything here
+  // issue: string = "";  
+  //status: number = 0; This is giving me an error.
+
+  searchTickets = "";
+  GetTicketResult(): Ticket[]{
+    if(this.searchTickets == ""){
+      return this.tickets;
+    }
+    else{
+      // return this.ticketapiService.GetAllTickets(this.searchTickets);
+      return this.tickets; // Added this temporarly
+    }
   }
 
-  GetAListOfTickets(): void{
-    this.ticketapiService.getTickets().subscribe(
-      (response: any) =>{
-        this.ticketName = response.TicketName;
-        this.issue = response.Issue;
-        //this.status = status;
-      }
-    );
+
+
+  ngOnInit(): void {
+    //this.GetAListOfTickets();
+    this.tickets = this.ticketapiService.GetAllTickets();
   }
+
+  SearchTicketByName(type:string):void{
+    console.log(type);
+    this.searchTickets = type;
+  }
+
+  // GetAListOfTickets(): void{
+  //   this.ticketapiService.GetAllTickets().subscribe(
+  //     (response: any) =>{
+  //       this.ticketName = response.ticketName;
+  //       this.issue = response.issue;
+  //       //this.status = status;
+  //       console.log(response);
+  //     }
+  //   );
+  // }
 }

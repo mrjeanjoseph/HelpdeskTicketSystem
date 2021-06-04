@@ -1,7 +1,7 @@
 export interface Ticket {
     id: number;
-    status: number;
     ticketName: string;
+    status: number;
     issue: string;
     openedBy: string;
 }
