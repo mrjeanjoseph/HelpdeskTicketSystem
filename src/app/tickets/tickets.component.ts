@@ -49,7 +49,7 @@ export class TicketsComponent implements OnInit {
   GetAllTickets():void{
     this.ticketapiService.GetAllTickets().subscribe(
       (response: any) =>{
-        this.tickets = response.tickets;
+        this.tickets = response;
         console.log(response);
       }
     )

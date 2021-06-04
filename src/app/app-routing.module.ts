@@ -1,10 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { TicketdetailsComponent } from './ticketdetails/ticketdetails.component';
+import { TicketsComponent } from './tickets/tickets.component';
 
-const routes: Routes = [];
+//added these as custom routes
+const appRoutes: Routes = [ 
+  { path: 'tickets', component: TicketsComponent},
+  { path: 'tickets/id', component: TicketdetailsComponent},
+  { path: '', redirectTo: '/tickets', pathMatch: 'full'},
+  { path: '**', redirectTo: '/tickets', pathMatch: 'full'} // Look back to here for error - reference dummy proj
+]
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
