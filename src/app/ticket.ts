@@ -4,5 +4,6 @@ export interface Ticket {
     status: boolean;
     issue: string;
     openedBy: string;
+    
 }
 

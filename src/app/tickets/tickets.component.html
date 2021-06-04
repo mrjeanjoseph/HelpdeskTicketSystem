@@ -9,3 +9,10 @@
 <p>{{ t.ticketName }}</p>
 <p>{{ t.issue }}</p>
 </div>
+
+<form #ticketForm="ngForm" (ngSubmit)="CreateATicket(ticketForm)">
+    Ticket Name <input name="ticketName" type="text" ngModel>
+   Opened By <input name="openedBy" type="text" ngModel>
+   Issue <input name="issue" type="text" ngModel>
+    <button >Save to DB</button>
+</form>

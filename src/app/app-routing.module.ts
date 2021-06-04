@@ -4,7 +4,7 @@ import { TicketdetailsComponent } from './ticketdetails/ticketdetails.component'
 import { TicketsComponent } from './tickets/tickets.component';
 
 //added these as custom routes
-const appRoutes: Routes = [ 
+const routes: Routes = [ 
   { path: 'tickets', component: TicketsComponent},
   { path: 'tickets/id', component: TicketdetailsComponent},
   { path: '', redirectTo: '/tickets', pathMatch: 'full'},
@@ -12,7 +12,7 @@ const appRoutes: Routes = [
 ]
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
