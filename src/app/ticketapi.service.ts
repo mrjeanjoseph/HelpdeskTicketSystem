@@ -9,7 +9,8 @@ const baseUrl = 'https://localhost:44361/api/Ticket';
   providedIn: 'root'
 })
 export class TicketapiService {
-  
+  tickets: Ticket[] = [];
+
   //apiUrl:string = 'https://localhost:44361/api/Ticket';
 
   //constructor(private http: HttpClient, private ticketapiservice: TicketapiService) { }
@@ -19,16 +20,24 @@ export class TicketapiService {
     return this.http.get(baseUrl);
   }
 
-  // FindByTicketName(ticketName: any): Ticket{
-  //   return this.http.get(`${apiUrl}name=${ticketName}`);
-  // }
+  FindByTicketName(ticketName: any): Ticket{
+    let result: Ticket = {
+      id: -1,
+      status: false,
+      ticketName: "",
+      issue: "",
+      openedBy: ""
+    }
+    this.tickets.forEach((t:Ticket) =>{
+      if(t.ticketName == ticketName){
+        result = t;
+      }
+    })
+    return result;
+  }
 
   GetAll(): Observable<Ticket[]> {
     return this.http.get<Ticket[]>(baseUrl);
-  }
-
-  FindByTicketName(name: any): Observable<Ticket[]>{
-    return this.http.get<Ticket[]>(`${baseUrl}name${name}`)
   }
 
   CreateTicket(newTicket: Ticket): any{
@@ -40,6 +49,4 @@ export class TicketapiService {
     "&issue="+newTicket.issue + 
     "&openedBy="+newTicket.openedBy, params);
   }
-
-
 }

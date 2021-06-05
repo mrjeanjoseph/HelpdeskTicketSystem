@@ -6,7 +6,7 @@ import { TicketsComponent } from './tickets/tickets.component';
 //added these as custom routes
 const routes: Routes = [ 
   { path: 'tickets', component: TicketsComponent},
-  { path: 'tickets/id', component: TicketdetailsComponent},
+  { path: 'tickets/:id', component: TicketdetailsComponent},
   { path: '', redirectTo: '/tickets', pathMatch: 'full'},
   { path: '**', redirectTo: '/tickets', pathMatch: 'full'} // Look back to here for error - reference dummy proj
 ]

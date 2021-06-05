@@ -17,13 +17,12 @@ aSingleTicket: Ticket = {
     issue: "",
     openedBy: ""
   }
+
   constructor(private ticketApiService: TicketapiService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    // const routeParams = this.route.snapshot.paramMap;
-    // let id: number = Number(routeParams.get("id"));
-
-    // this.aSingleTicket = this.ticketApiService.GetTicketById(id);
+    const routeParams = this.route.snapshot.paramMap;
+    let id: number = Number(routeParams.get("id"));
+    this.aSingleTicket = this.ticketApiService.FindByTicketName(id);
   }
-
 }

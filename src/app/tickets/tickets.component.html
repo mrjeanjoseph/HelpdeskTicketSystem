@@ -1,15 +1,15 @@
 <h2>Parent Component</h2>
-<h4>All tickets should appear here!</h4>
+<h4>This is a list of all tickets!</h4>
 <!-- This is the parent component -->
 
+<!-- <app-searchform (SubmitSearch)="SearchTicketByName($event)"></app-searchform> -->
 
-<!-- <app-searchform ()="SearchTicketByName($event)"></app-searchform> -->
-<!-- 'submitsearch' goes in the parentesis-->
 <div *ngFor="let t of GetTicketResult()">
 <p>{{ t.ticketName }}</p>
-<p>{{ t.issue }}</p>
+<a [routerLink]="['/tickets', t.ticketName]">View Details</a>
 </div>
 
+<!-- submitting to the database -->
 <form #ticketForm="ngForm" (ngSubmit)="CreateATicket(ticketForm)">
     Ticket Name <input name="ticketName" type="text" ngModel>
    Opened By <input name="openedBy" type="text" ngModel>

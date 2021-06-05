@@ -17,32 +17,20 @@ export class TicketsComponent implements OnInit {
   currentTicket: Ticket [] = [];
   currentIndex = -1;
   ticketName = '';
-  
-  //Initalize a empty api array to fill
-  // ticketName: string = ""; // It looks like I don't have to initialize anything here
-  // issue: string = "";  
-  //status: number = 0; This is giving me an error.
-
   searchTickets = "";
+
   GetTicketResult(): Ticket[]{
     if(this.searchTickets == ""){
       return this.tickets;
     }
     else{
-      // return this.ticketapiService.GetAllTickets(this.searchTickets);
       return this.tickets; // Added this temporarly
     }
   }
 
-
-
-
   ngOnInit(): void {
-    //this.GetAListOfTickets();
     this.GetAllTickets();
   }
-
-
 
   GetAllTickets():void{
     this.ticketapiService.GetAllTickets().subscribe(
@@ -68,18 +56,26 @@ export class TicketsComponent implements OnInit {
     )
   }
 
-  SearchTicketByName(): void{
-    this.currentTicket = [];
-    this.currentIndex = -1;
-
-    this.ticketapiService.FindByTicketName(this.ticketName).subscribe(
-      ticketData => {
-        this.tickets = ticketData;
-        console.log(ticketData);
-      },
-      error => {
-        console.log(error);
+  getOneTicket:string ="";
+  SearchTicketByName(): any{
+    let result: Ticket[] = [];
+    this.tickets.forEach((t:Ticket) =>{
+      if(t.ticketName.includes(this.getOneTicket)){
+        result.push(t);
       }
-    );
+    });
+    return result;
   }
+
+  // SearchTicketByName(ticketName: string): void{
+  //   this.currentTicket = [];
+  //   this.currentIndex = -1;
+
+  //   this.ticketapiService.FindByTicketName(this.ticketName).subscribe(
+  //     ticketData => {
+  //       this.tickets = ticketData;
+  //       console.log(ticketData);
+  //     },
+  //   );
+  // }
 }
