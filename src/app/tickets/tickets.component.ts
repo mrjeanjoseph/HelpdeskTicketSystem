@@ -72,6 +72,13 @@ export class TicketsComponent implements OnInit {
     )
   }
 
+  bookmark(ticket: Ticket): void{
+    this.ticketservice.bookmarkATicket(ticket.id).subscribe(
+      (response: any) => {
+        console.log(response);
+      }
+    );
+  }
   
 
   delete(ticket: Ticket): void{

@@ -4,10 +4,14 @@
     <li *ngFor="let ticket of tickets">
         <a routerLink="/detail/{{ ticket.id }}">
             <span class="badge">{{ ticket.id }} </span> {{ ticket.ticketName }}
-        </a>
+        </a>        
         <button 
         class="delete" title="deleteTicket"
         (click)="delete(ticket)">X</button>
+        <button 
+        class="bookmark" title="bookmark"
+        (click)="bookmark(ticket)">B</button>
+        
     </li>
 </ul>
 

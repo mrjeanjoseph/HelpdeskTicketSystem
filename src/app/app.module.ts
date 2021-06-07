@@ -11,6 +11,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TicketsearchComponent } from './ticketsearch/ticketsearch.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LoginpageComponent } from './loginpage/loginpage.component';
     MessagesComponent,
     DashboardComponent,
     TicketsearchComponent,
-    LoginpageComponent
+    LoginpageComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

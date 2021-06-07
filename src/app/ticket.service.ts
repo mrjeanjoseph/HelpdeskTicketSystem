@@ -12,14 +12,15 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class TicketService {
 
   private ticketUrl = 'https://localhost:44361/api/Ticket'; // This will come from visual studio url
-
+  private BookmarkUrl = 'https://localhost:44361/api/BookMarked';
+  
   constructor(
     private http : HttpClient,
     private messageservice: MessageService
     ) { }
 
     // login to the page
-    loginName: string = "";
+    loginName: string = "Default";
 
     setLogin(newlogin: string): void {
       this.loginName = newlogin;
@@ -124,4 +125,15 @@ export class TicketService {
       );
   }
 
+  bookmarkATicket(bId: number): any{
+    const url = `${this.BookmarkUrl}`; // No id required since it's not in http post VS
+    const params = new HttpParams();    
+    return this.http.post(this.BookmarkUrl + "?ticketId="+bId + 
+    "&bookmarkedby="+this.loginName, params);
+  }
+
+  getBookmarkByUser(): any{
+    return this.http.get(this.BookmarkUrl + "/bookmarkedBy?bookmarkedBy="+ this.loginName);
+  }
+  
 }

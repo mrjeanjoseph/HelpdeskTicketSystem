@@ -9,6 +9,9 @@
         <h3>Description: {{ ticket.issue }}</h3>
     </div>
     <br>
+    <button 
+    class="delete" title="deleteTicket"
+    (click)="delete(ticket)">X</button>
 <div>
     <button (click)="goBack()">Go Back</button>
     <button (click)="save()">save</button>
