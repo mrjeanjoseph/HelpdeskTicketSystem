@@ -1,5 +1,5 @@
 export interface Ticket {
-    [x: string]: any;
+    [x: string]: any; // Look into why this is here
     id: number;
     ticketName: string;
     status: boolean;

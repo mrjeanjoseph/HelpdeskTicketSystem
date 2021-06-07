@@ -9,6 +9,7 @@ const baseUrl = 'https://localhost:44361/api/Ticket';
   providedIn: 'root'
 })
 export class TicketapiService {
+
   tickets: Ticket[] = [];
 
   //apiUrl:string = 'https://localhost:44361/api/Ticket';
@@ -38,6 +39,11 @@ export class TicketapiService {
 
   GetAll(): Observable<Ticket[]> {
     return this.http.get<Ticket[]>(baseUrl);
+  }
+
+  getTicket(id: number): Observable<Ticket>{
+    const url = `${ baseUrl}/${id}`;
+    return this.http.get<Ticket>(url)
   }
 
   CreateTicket(newTicket: Ticket): any{

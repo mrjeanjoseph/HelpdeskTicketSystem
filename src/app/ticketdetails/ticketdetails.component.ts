@@ -9,20 +9,32 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./ticketdetails.component.css']
 })
 export class TicketdetailsComponent implements OnInit {
+  ticketDetail: Ticket | undefined;
 
-aSingleTicket: Ticket = {
-    id: -1,
-    status: false,
-    ticketName: "",
-    issue: "",
-    openedBy: ""
-  }
+// @Input() aSingleTicket: Ticket = {
+//     id: -1,
+//     status: false,
+//     ticketName: "",
+//     issue: "",
+//     openedBy: ""
+//   }
 
   constructor(private ticketApiService: TicketapiService, private route:ActivatedRoute) { }
 
+  // ngOnInit(): void {
+  //   const routeParams = this.route.snapshot.paramMap;
+  //   let id: number = Number(routeParams.get("id"));
+  //   this.aSingleTicket = this.ticketApiService.FindByTicketName(id);
+  // }
+
+  //trying something new
   ngOnInit(): void {
-    const routeParams = this.route.snapshot.paramMap;
-    let id: number = Number(routeParams.get("id"));
-    this.aSingleTicket = this.ticketApiService.FindByTicketName(id);
+    this.getTicket();
+  }
+
+  getTicket(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.ticketApiService.getTicket(id)
+    .subscribe((ticket) => ticket = ticket);
   }
 }

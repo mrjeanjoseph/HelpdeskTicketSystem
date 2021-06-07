@@ -57,6 +57,7 @@ export class TicketsComponent implements OnInit {
   }
 
   getOneTicket:string ="";
+  
   SearchTicketByName(): any{
     let result: Ticket[] = [];
     this.tickets.forEach((t:Ticket) =>{
@@ -66,16 +67,4 @@ export class TicketsComponent implements OnInit {
     });
     return result;
   }
-
-  // SearchTicketByName(ticketName: string): void{
-  //   this.currentTicket = [];
-  //   this.currentIndex = -1;
-
-  //   this.ticketapiService.FindByTicketName(this.ticketName).subscribe(
-  //     ticketData => {
-  //       this.tickets = ticketData;
-  //       console.log(ticketData);
-  //     },
-  //   );
-  // }
 }
