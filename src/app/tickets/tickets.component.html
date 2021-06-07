@@ -1,15 +1,5 @@
 <H2>Tickets: </H2>
 
-<!-- This will add a new ticket -->
-<!-- <div>
-    <label for="newTicket">Ticket Name</label>
-    <input type="text" id="newTicket" #ticketName />
-    <button
-    class="addButton" 
-    (click)="add(ticketName.value); 
-    ticketName.value">Add a Ticket</button>
-</div> -->
-
 <ul class="tickets">
     <li *ngFor="let ticket of tickets">
         <a routerLink="/detail/{{ ticket.id }}">
@@ -27,33 +17,3 @@
    Issue <input name="issue" type="text" ngModel>
     <button >Save to DB</button>
 </form>
-
-
-
-<!-- This is being replaced with routerLinks -->
-
-<!-- <ul class="tickets">
-    <li 
-    *ngFor="let ticket of tickets"
-    [class.selected]="ticket === selectedTicket"
-    (click)="onSelect(ticket)">     
-        <span class="badge">{{ ticket.id }} </span> {{ ticket.ticketName }}
-    </li>
-</ul> -->
-
-<!-- IT USED TO BE THIS! -->
-<!-- <div *ngIf="selectedTicket">
-
-    <h2>{{ selectedTicket.ticketName | uppercase }} Details: </h2>
-    <div><span>id: </span>{{selectedTicket.id}}</div>
-
-    <div>
-        <label for="ticketName">Ticket Name: </label>
-        <input disabled type="text" id="ticketName" [(ngModel)]="selectedTicket.ticketName" placeholder="Ticket Name">
-    </div>
-</div> -->
-
-
-<!-- That one is gone too -->
-<!-- It used to display the list of ticket at the bottom -->
-<!-- <app-ticketdetails [ticket]="selectedTicket"></app-ticketdetails> -->

@@ -3,7 +3,6 @@ import { Ticket } from './ticket';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-
 import { catchError, map, tap } from 'rxjs/operators';
 // 
 
@@ -11,37 +10,29 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class TicketService {
+
   private ticketUrl = 'https://localhost:44361/api/Ticket'; // This will come from visual studio url
 
   constructor(
     private http : HttpClient,
     private messageservice: MessageService
     ) { }
-// Log a HeroService message with the MessageService 
+
+    // login to the page
+    loginName: string = "";
+
+    setLogin(newlogin: string): void {
+      this.loginName = newlogin;
+    }
+
+    getLogin(): string{
+      return this.loginName;
+    }
+
+// Log a TicketService message with the MessageService 
   private log(message: string){
     this.messageservice.add(`TicketService: ${message}`);
   }  
-
-  // These are dummy tickets
-  // We will come back to this method later - Maybe
-  // getTickets(): Ticket[]{
-  //   return TICKETS;
-  // }
-//=========================================
-
-  //**This is to get a bunch of tickets
-  // getTickets(): Observable<Ticket[]>{
-  //   const tickets = of(TICKETS);
-  //   this.messageservice.add(`TicketService: fetched tickets`);
-  //   // This is a typical "service-in-service" scenario:
-  //   // you inject the MessageService into the HeroService which is injected into the HeroesComponent.
-  //   return tickets;
-  // }
-//=========================================
-  // This will get tickets from  HttpClient
-  // getTickets(): Observable<Ticket[]>{
-  //   return this.http.get<Ticket[]>(this.ticketUrl);
-  // }
 
   //So much code, my head is  spinning 
   getTickets(): Observable<Ticket[]>{
@@ -72,15 +63,6 @@ export class TicketService {
     };
   }
 
-
-  //**this is to get one single ticket
-  // Changing this method to use the API from Visual studio
-  // getTicket(id: number): Observable<Ticket>{
-  //   const ticket = TICKETS.find(t => t.id === id)!;
-  //   this.messageservice.add(`TicketService: fetched ticket id=${id}`);
-  //   return of(ticket);
-  // }
-
   //Getting a ticket by Id
   getTicket(id: number): Observable<Ticket>{
     const url = `${ this.ticketUrl}/${id}`;
@@ -105,24 +87,6 @@ export class TicketService {
     )
   }
 
-  // addNewTicket(ticket: Ticket): any{
-  //   console.log(ticket);
-  //   const params = new HttpParams();
-
-  //   return this.http.post(this.ticketUrl + 
-  //   "?ticketName="+ticket.ticketName + 
-  //   "&status="+ticket.status + 
-  //   "&issue="+ticket.issue + 
-  //   "&openedBy="+ticket.openedBy, params);
-  // }
-
-  // addNewTicket(ticket: Ticket): Observable<Ticket>{
-  //   return this.http.post<Ticket>(this.ticketUrl,
-  //     ticket, this.httpOptions).pipe(
-  //     tap((newTicket: Ticket) => this.log(`added ticket with id=${newTicket.id}`)),
-  //     catchError(this.handleError<Ticket>('addNewTicket'))
-  //     );
-  // }
 
   //================================================
   addNewTicket(newTicket: Ticket): any{
@@ -134,10 +98,6 @@ export class TicketService {
     "&issue="+newTicket.issue + 
     "&openedBy="+newTicket.openedBy, params);
   }
-
-  // deleteTicket(id: Ticket): any{
-  //   return this.http.delete(this.ticketUrl + "?ticketName="+id.id, this.httpOptions);
-  // }
 
 
   // This delete ticket is not necessary and its not working

@@ -10,6 +10,7 @@ import { TicketdetailsComponent } from './ticketdetails/ticketdetails.component'
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TicketsearchComponent } from './ticketsearch/ticketsearch.component';
+import { LoginpageComponent } from './loginpage/loginpage.component';
 
 @NgModule({
   declarations: [
@@ -18,15 +19,13 @@ import { TicketsearchComponent } from './ticketsearch/ticketsearch.component';
     TicketdetailsComponent,
     MessagesComponent,
     DashboardComponent,
-    TicketsearchComponent
+    TicketsearchComponent,
+    LoginpageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    // HttpClientInMemoryWebApiModule.forRoot(
-    //   InMemoryDataService, { dataEncapsulation: false }
-    // ),
     AppRoutingModule
   ],
   providers: [],
