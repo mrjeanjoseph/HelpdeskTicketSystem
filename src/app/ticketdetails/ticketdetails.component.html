@@ -1,0 +1,16 @@
+<div *ngIf="ticket">
+
+    <h2>Ticket: {{ ticket.ticketName | uppercase }} detail </h2>
+    <div><span>id: </span>{{ticket.id}}</div>
+
+    <div>
+        <label for="ticketName">Ticket Name: </label>
+        <input disabled type="text" id="ticketName" [(ngModel)]="ticket.ticketName" placeholder="Ticket Name">
+        <h3>Description: {{ ticket.issue }}</h3>
+    </div>
+    <br>
+<div>
+    <button (click)="goBack()">Go Back</button>
+    <button (click)="save()">save</button>
+</div>
+</div>

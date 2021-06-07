@@ -1,0 +1,11 @@
+
+<h2>Top Tickets</h2>
+<div class="tickets-menu">
+    <a *ngFor="let ticket of tickets"
+    routerLink="/detail/{{ticket.id}}">
+    <!-- Angular interpolation binding within the *ngFor repeater to insert the current iteration's ticket.id into each routerLink. -->
+    {{ ticket.ticketName }}</a>
+</div>
+
+<!-- Adding searching functionality to the dashboard -->
+<app-ticketsearch></app-ticketsearch>
