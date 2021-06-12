@@ -70,14 +70,14 @@ export class TicketService {
     return this.http.get<Ticket>(url)
     .pipe(tap(_ => this.log(`found this ticket id=${id}`)),
     catchError(this.handleError<Ticket>(`getTicket id=${id}`))    
-    )
+    );
   }
 
   updateTicket(ticket: Ticket): Observable<any> {
     return this.http.put(this.ticketUrl, ticket, this.httpOptions)
     .pipe(tap(_ => this.log(`updated ticket id=${ticket.id}`)),    
     catchError(this.handleError<Ticket[]>('getTickets', []))  
-  );
+    );
   }
 
   httpOptions = {
@@ -88,7 +88,6 @@ export class TicketService {
     )
   }
 
-
   //================================================
   addNewTicket(newTicket: Ticket): any{
     console.log(newTicket);
@@ -97,16 +96,16 @@ export class TicketService {
     return this.http.post(this.ticketUrl + "?ticketName="+newTicket.ticketName + 
     "&status="+newTicket.status + 
     "&issue="+newTicket.issue + 
-    "&openedBy="+newTicket.openedBy, params);
+    "&openedBy="+newTicket.openedBy, params)
+    ;
   }
-
 
   // This delete ticket is not necessary and its not working
   deleteTicket(id: number): Observable<Ticket> {
     const url = `${this.ticketUrl}/${id}`;
 
     return this.http.delete<Ticket>(url, this.httpOptions)
-    .pipe(tap(_ => this.log(`delete hero id=${id}`)),
+    .pipe(tap(_ => this.log(`Ticket Id: id=${id} has been resolved`)),
     catchError(this.handleError<Ticket>('deleteTicket'))
     );
   }
@@ -134,6 +133,5 @@ export class TicketService {
 
   getBookmarkByUser(): any{
     return this.http.get(this.BookmarkUrl + "/bookmarkedBy?bookmarkedBy="+ this.loginName);
-  }
-  
+  }  
 }

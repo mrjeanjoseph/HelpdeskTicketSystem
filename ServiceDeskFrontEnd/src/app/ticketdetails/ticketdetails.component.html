@@ -5,8 +5,12 @@
 
     <div>
         <label for="ticketName">Ticket Name: </label>
-        <input disabled type="text" id="ticketName" [(ngModel)]="ticket.ticketName" placeholder="Ticket Name">
+        <!-- <input type="text" id="ticketName" [(ngModel)]="ticket.ticketName" placeholder="Ticket Name">
+        <h3>Description: {{ ticket.issue }}</h3> -->
+
+        <h3>Ticket Name: {{ ticket.ticketName }}</h3>
         <h3>Description: {{ ticket.issue }}</h3>
+        <input type="text" id="ticketName" [(ngModel)]="ticket.ticketName" placeholder="Ticket Name">
     </div>
     <br>
     <button 
@@ -17,3 +21,7 @@
     <button (click)="save()">save</button>
 </div>
 </div>
+
+
+
+<!-- Testing something -->
