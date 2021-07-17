@@ -1,7 +1,15 @@
 
-<h1>Current User {{ myLogin }}</h1>
 
-<form #loginForm="ngForm" (ngSubmit)="setLogin(loginForm)">
-    <input type="text" name="user" ngModel />    
-        <button>Login</button>      
+
+<form class="row g-3" #loginForm="ngForm" (ngSubmit)="setLogin(loginForm)">
+  <div class="col-auto">
+    <label for="loginUser" class="visually-hidden">Current User {{ myLogin }}</label>
+    <input type="text" readonly class="form-control-plaintext" id="loginUser" value="loginUser">
+  </div>
+  <div class="col-auto">
+    <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary mb-3">Login</button>
+  </div>
 </form>
