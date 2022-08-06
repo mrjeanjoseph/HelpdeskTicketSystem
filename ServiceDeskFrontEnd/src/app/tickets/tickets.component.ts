@@ -2,7 +2,7 @@ import { TicketService } from './../ticket.service';
 
 import { Ticket } from './../ticket';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormGroup, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-tickets',
@@ -31,6 +31,10 @@ export class TicketsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTickets();
+  }
+
+  onSubmit(value:any):void{
+    console.log("on submit triggered");
   }
 
   // We will come back to this method later
@@ -68,6 +72,7 @@ export class TicketsComponent implements OnInit {
     this.ticketservice.addNewTicket(newticket).subscribe(
       (response: any) => {
         console.log(response);
+        form.reset();
       }
     )
   }

@@ -2,7 +2,7 @@
 
 namespace ServiceDesk.Migrations
 {
-    public partial class ServiceDeskDB : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

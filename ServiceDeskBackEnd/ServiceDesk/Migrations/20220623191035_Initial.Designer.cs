@@ -10,8 +10,8 @@ using ServiceDesk;
 namespace ServiceDesk.Migrations
 {
     [DbContext(typeof(ServiceDeskDBContext))]
-    [Migration("20210714184733_ServiceDeskDB")]
-    partial class ServiceDeskDB
+    [Migration("20220623191035_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

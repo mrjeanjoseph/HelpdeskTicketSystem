@@ -8,14 +8,9 @@ namespace ServiceDesk
 {
     public partial class ServiceDeskDBContext : DbContext
     {
-        public ServiceDeskDBContext()
-        {
-        }
+        public ServiceDeskDBContext() {}
 
-        public ServiceDeskDBContext(DbContextOptions<ServiceDeskDBContext> options)
-            : base(options)
-        {
-        }
+        public ServiceDeskDBContext(DbContextOptions<ServiceDeskDBContext> options): base(options){}        
 
         public virtual DbSet<BookMarked> BookMarkeds { get; set; }
         public virtual DbSet<Resolution> Resolutions { get; set; }
@@ -25,7 +20,8 @@ namespace ServiceDesk
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=.\\MSSQLLocalDB;Initial Catalog=ServiceDeskDB; Integrated Security=SSPI;");
+               // optionsBuilder.UseSqlServer("Data Source=.\\MSSQLLocalDB;Initial Catalog=ServiceDeskDB; Integrated Security=SSPI;");
+                optionsBuilder.UseSqlServer("Data Source=.\\sqlexpress;Initial Catalog=ServiceDeskDB; Integrated Security=SSPI;");
             }
         }
 

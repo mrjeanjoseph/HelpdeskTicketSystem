@@ -9,11 +9,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
   tickets: Ticket[] = [];
   bookmarks: Bookmark[] = [];
   bookmarkTickets: Ticket[] = [];
-
 
   constructor(private ticketservice: TicketService) { }
 
@@ -46,9 +44,6 @@ export class DashboardComponent implements OnInit {
       (b: Bookmark) => {
         this.bookmarkTickets.push(this.tickets.find((t:Ticket) =>  t.id == b.ticketId)!);
       }
-        
     )
   }
-
 }
-

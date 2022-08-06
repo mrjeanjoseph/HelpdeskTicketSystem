@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace ServiceDesk.Controllers
 {
@@ -21,8 +18,6 @@ namespace ServiceDesk.Controllers
             }
         }
 
-
-
         [HttpGet("bookmarkedBy")]
         public List<BookMarked> GetAllByUserId(string bookmarkedBy)
         {
@@ -34,8 +29,6 @@ namespace ServiceDesk.Controllers
                 return list;
             }
         }
-
-
 
         [HttpPost]
         public BookMarked AddBookMarked(string bookmarkedby, int ticketId)
@@ -52,7 +45,6 @@ namespace ServiceDesk.Controllers
                 return b;
             }
         }
-
 
     }
 }
