@@ -16,7 +16,7 @@
 </ul>
 
 <form #ticketForm="ngForm" (ngSubmit)="add(ticketForm)">
-    Ticket Name <input name="ticketName" type="text" ngModel>
+    Ticket Name <input name="ticketName" type="text" ngModel autocomplete="off">
    Opened By <input name="openedBy" type="text" ngModel>
    Issue <input name="issue" type="text" ngModel>
     <button class="btn btn-primary">Submit</button> 

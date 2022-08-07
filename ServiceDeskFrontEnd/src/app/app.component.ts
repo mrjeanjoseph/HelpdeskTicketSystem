@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'HelpDesk CRM';
+  loginAccess = "Login"
+  dashboard = "Dashboard";
+  ticketSearch = "Ticket Search";
+  bookmark = "Bookmark";
+  profile = "Profile"
 }
