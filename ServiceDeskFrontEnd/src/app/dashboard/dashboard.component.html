@@ -1,4 +1,3 @@
-
 <!-- <h2>Bookmark</h2>
 <div class="tickets-menu">
     <a *ngFor="let ticket of bookmarkTickets"
@@ -7,16 +6,15 @@
 </div> 
 <hr>-->
 
-<div class="card" style="width: 18rem;">
-    <div class="card-header">
-      Featured
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">An item</li>
-      <li class="list-group-item">A second item</li>
-      <li class="list-group-item">A third item</li>
+<div class="card float-end" style="width: 15rem;">
+    <div class="card-header">Bookmarked Items</div>
+    <ul class="list-group list-group-flush no-bullets">
+        <li *ngFor="let ticket of bookmarkTickets" routerLink="/detail/{{ticket.id}}">
+            <a>{{ ticket.ticketName }}</a>
+        </li>
     </ul>
-  </div>
+</div>
+
 
 <!-- Adding searching functionality to the dashboard -->
 <!-- <app-ticketsearch></app-ticketsearch> -->

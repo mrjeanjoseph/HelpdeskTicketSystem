@@ -6,17 +6,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
-
-  constructor(private ticketService: TicketService) { }
-
-  //userName: string = "Default";
-
-  ngOnInit(): void {
-  }
-
-  displayName(): string{
-    return this.ticketService.loginName;
-  }
-
+export class HeaderComponent{
+  title = 'HelpDesk CRM';
+  loginAccess = "Login"
+  dashboard = "Dashboard";
+  ticketSearch = "Ticket Search";
+  bookmark = "Bookmark";
+  profile = "Profile"
 }

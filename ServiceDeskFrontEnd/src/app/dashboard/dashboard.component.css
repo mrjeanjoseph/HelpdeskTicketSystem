@@ -18,17 +18,17 @@ h2 {
   align-items: flex-start;
 }
 
-a {
+li a {
   background-color: #3f525c;
-  border-radius: 2px;
+  border-radius: 5px;
   padding: 1rem;
   font-size: 1.2rem;
   text-decoration: none;
   display: inline-block;
-  color: #fff;
+  color: #f5f6fa;
   text-align: center;
   width: 100%;
-  min-width: 70px;
+  min-width: 100px;
   margin: .5rem auto;
   box-sizing: border-box;
 
@@ -45,6 +45,14 @@ a {
   }
 }
 
-a:hover {
+li a:hover {
   background-color: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+ul.no-bullets {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
 }
